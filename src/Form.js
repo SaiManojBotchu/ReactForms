@@ -11,6 +11,7 @@ class Form extends Component {
   handleChange(evt) {
     this.setState({ name: evt.target.value });
   }
+
   handleSubmit(evt) {
     evt.preventDefault();
     alert(`You typed: ${this.state.name}`);
@@ -21,14 +22,13 @@ class Form extends Component {
     return (
       <div>
         <h1>Form Demo</h1>
-        <label htmlFor='name'>Name</label>
         <form onSubmit={this.handleSubmit}>
+          <label htmlFor='name'>Name : </label>
           <input
             id='name'
-            name='name'
             value={this.state.name}
-            placeholder='name'
             onChange={this.handleChange}
+            autoComplete='off'
           />
           <button>Submit!</button>
         </form>

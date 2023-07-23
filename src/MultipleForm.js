@@ -9,14 +9,14 @@ class MultipleForm extends Component {
   }
 
   handleChange(evt) {
-    console.log(evt.target.name, typeof evt.target.name);
+    // console.log(evt.target.name, typeof evt.target.name);
     this.setState({
       [evt.target.name]: evt.target.value
     });
   }
   handleSubmit(evt) {
     evt.preventDefault();
-    alert(`You typed: ${this.state.name}`);
+    console.log(this.state.name, this.state.age, this.state.gender);
     this.setState({ name: '', age: 0, gender: '' });
   }
 
@@ -25,13 +25,13 @@ class MultipleForm extends Component {
       <div>
         <h1>Multiple Form Demo</h1>
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor='name'>Name</label>
           <input
             id='name'
             name='name'
             value={this.state.name}
             placeholder='name'
             onChange={this.handleChange}
+            autoComplete='off'
           />
           <input
             id='age'
@@ -39,6 +39,7 @@ class MultipleForm extends Component {
             value={this.state.age}
             placeholder='age'
             onChange={this.handleChange}
+            autoComplete='off'
           />
           <input
             id='gender'
@@ -46,6 +47,7 @@ class MultipleForm extends Component {
             value={this.state.gender}
             placeholder='gender'
             onChange={this.handleChange}
+            autoComplete='off'
           />
           <button>Submit!</button>
         </form>
